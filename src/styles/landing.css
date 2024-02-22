@@ -1,0 +1,21 @@
+.landing-page {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: var(--gap) 0;
+}
+
+.aside {
+    margin: var(--gap);
+    height: 100%;
+    width: 15%;
+}
+
+.items-view {
+    margin: var(--gap);
+    height: 100%;
+    width: 85%;
+}
