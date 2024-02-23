@@ -1,3 +1,5 @@
 .items-view {
     background-color: var(--overlay);
+    padding: 0 var(--gap);
+    overflow-y: scroll;
 }

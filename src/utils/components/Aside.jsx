@@ -14,6 +14,8 @@ export default function Aside() {
         clothing: false,
         music: false,
         movies: false,
+        essentials: false,
+        outdoor: false,
     });
 
     const toggleSearchParam = (paramName) => {
@@ -50,6 +52,8 @@ export default function Aside() {
             <Filter title={'Clothing'} isActive={searchFilters.get('clothing') === 'true'} />
             <Filter title={'Music'} isActive={searchFilters.get('music') === 'true'} />
             <Filter title={'Movies'} isActive={searchFilters.get('movies') === 'true'} />
+            <Filter title={'Essentials'} isActive={searchFilters.get('essentials') === 'true'} />
+            <Filter title={'Outdoor'} isActive={searchFilters.get('outdoor') === 'true'} />
         </aside>
     );
 }

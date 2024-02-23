@@ -1,17 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import '../../styles/itemsview.css';
 import { useSearchParams } from 'react-router-dom';
 import Stock from '../../assets/libs/Stock.json';
+import Item from './Item';
+
 export default function ItemsView() {
     const [searchFilters] = useSearchParams([]);
+    const [filteredStock, setFilteredStock] = useState([]);
 
-    for (const entry of searchFilters.entries()) {
-        console.log(entry[0]);
-    }
+    useEffect(() => { filterStock(); }, [searchFilters]);
+
+    const filterStock = () => {
+        const filterParams = Object.fromEntries(searchFilters.entries());
+        const filteredItems = Stock.filter(item => {
+            return Object.entries(item.categories).every(([key, value]) => {
+                if (filterParams[key] === "true" && value !== true) {
+                    return false;
+                }
+                else { return true; }
+            });
+        });
+        setFilteredStock(filteredItems);
+    };
 
     return (
         <div className='items-view'>
-
+            {filteredStock.map((item, index) => (
+                <Item key={index} item={item} />
+            ))}
         </div>
     );
 }

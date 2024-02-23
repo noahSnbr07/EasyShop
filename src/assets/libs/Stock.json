@@ -9,6 +9,150 @@
         "rating": {
             "amount": 3274,
             "average": 4.75
+        },
+        "categories": {
+            "bestseller": true,
+            "latest": false,
+            "trending": true,
+            "books": false,
+            "tech": true,
+            "sale": false,
+            "sport": false,
+            "clothing": false,
+            "music": false,
+            "movies": false,
+            "essentials": true,
+            "outdoor": false
+        }
+    },
+    {
+        "id": 1,
+        "isCart": false,
+        "price": 8.99,
+        "title": "Lighter",
+        "description": "Grey, 75ml gas, waterproof, dustproof",
+        "asset": "https://images.unsplash.com/photo-1611952672006-1e95b7b6ed5e?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "rating": {
+            "amount": 345,
+            "average": 2.8
+        },
+        "categories": {
+            "bestseller": false,
+            "latest": false,
+            "trending": true,
+            "books": false,
+            "tech": false,
+            "sale": false,
+            "sport": false,
+            "clothing": false,
+            "music": false,
+            "movies": false,
+            "essentials": true,
+            "outdoor": true
+        }
+    },
+    {
+        "id": 2,
+        "isCart": false,
+        "price": 12.74,
+        "title": "Bottle",
+        "description": "Jungle Green, 1.7 L liquid, inbuild filter, silicon case",
+        "asset": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "rating": {
+            "amount": 2956,
+            "average": 4.3
+        },
+        "categories": {
+            "bestseller": false,
+            "latest": false,
+            "trending": true,
+            "books": false,
+            "tech": false,
+            "sale": true,
+            "sport": false,
+            "clothing": false,
+            "music": false,
+            "movies": false,
+            "essentials": true,
+            "outdoor": true
+        }
+    },
+    {
+        "id": 3,
+        "isCart": false,
+        "price": 399.99,
+        "title": "PlayStation 4",
+        "description": "Special White Color, 1TB Storage, 2 Controllers included",
+        "asset": "https://images.unsplash.com/photo-1507457379470-08b800bebc67?q=80&w=2109&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "rating": {
+            "amount": 1274,
+            "average": 4.9
+        },
+        "categories": {
+            "bestseller": true,
+            "latest": false,
+            "trending": true,
+            "books": false,
+            "tech": true,
+            "sale": false,
+            "sport": false,
+            "clothing": false,
+            "music": false,
+            "movies": false,
+            "essentials": false,
+            "outdoor": false
+        }
+    },
+    {
+        "id": 4,
+        "isCart": false,
+        "price": 11.28,
+        "title": "Computer Mouse",
+        "description": "1600+ DPI, red, bluetooth, 28 Hours live time",
+        "asset": "https://images.unsplash.com/flagged/photo-1561023367-4431103a484f?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "rating": {
+            "amount": 136,
+            "average": 2.6
+        },
+        "categories": {
+            "bestseller": false,
+            "latest": false,
+            "trending": false,
+            "books": false,
+            "tech": true,
+            "sale": false,
+            "sport": false,
+            "clothing": false,
+            "music": false,
+            "movies": false,
+            "essentials": false,
+            "outdoor": false
+        }
+    },
+    {
+        "id": 5,
+        "isCart": false,
+        "price": 59.99,
+        "title": "Outdoor Knife",
+        "description": "Razor Sharp, durable, dark grey, structured grip",
+        "asset": "https://images.unsplash.com/photo-1624482117299-7e03a4bcba7b?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "rating": {
+            "amount": 29,
+            "average": 4.9
+        },
+        "categories": {
+            "bestseller": false,
+            "latest": false,
+            "trending": false,
+            "books": false,
+            "tech": true,
+            "sale": false,
+            "sport": false,
+            "clothing": false,
+            "music": false,
+            "movies": false,
+            "essentials": false,
+            "outdoor": true
         }
     }
 ]
