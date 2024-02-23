@@ -200,7 +200,85 @@
             "tech": false,
             "sale": true,
             "sport": true,
+            "clothing": true,
+            "music": false,
+            "movies": false,
+            "essentials": false,
+            "outdoor": true
+        }
+    },
+    {
+        "id": 8,
+        "isCart": false,
+        "price": 69.99,
+        "title": "Fragrance Chanel °5",
+        "description": "pink-gold, 450ml, EAU DE PAFUM",
+        "asset": "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFyZnVtfGVufDB8fDB8fHww",
+        "rating": {
+            "amount": 452,
+            "average": 2.3
+        },
+        "categories": {
+            "bestseller": false,
+            "latest": true,
+            "trending": false,
+            "books": false,
+            "tech": false,
+            "sale": false,
+            "sport": false,
             "clothing": false,
+            "music": false,
+            "movies": false,
+            "essentials": true,
+            "outdoor": false
+        }
+    },
+    {
+        "id": 9,
+        "isCart": false,
+        "price": 29.99,
+        "title": "Beanie",
+        "description": "choco-brown beanie, hat, unisex",
+        "asset": "https://images.unsplash.com/photo-1612887726773-e64e20cf08fe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmVhbmllfGVufDB8fDB8fHww",
+        "rating": {
+            "amount": 34,
+            "average": 4.8
+        },
+        "categories": {
+            "bestseller": false,
+            "latest": true,
+            "trending": false,
+            "books": false,
+            "tech": false,
+            "sale": false,
+            "sport": false,
+            "clothing": true,
+            "music": false,
+            "movies": false,
+            "essentials": false,
+            "outdoor": true
+        }
+    },
+    {
+        "id": 10,
+        "isCart": false,
+        "price": 49.99,
+        "title": "Trenchcoat",
+        "description": "brown trenchcoat, male, noble jacket",
+        "asset": "https://images.unsplash.com/photo-1619603364904-c0498317e145?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHJlbmNoY29hdHxlbnwwfHwwfHx8MA%3D%3D",
+        "rating": {
+            "amount": 456,
+            "average": 4.1
+        },
+        "categories": {
+            "bestseller": false,
+            "latest": false,
+            "trending": true,
+            "books": false,
+            "tech": false,
+            "sale": false,
+            "sport": false,
+            "clothing": true,
             "music": false,
             "movies": false,
             "essentials": false,

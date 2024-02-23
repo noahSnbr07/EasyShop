@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react';
 import '../../styles/navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom'; // Removed useHistory
 import Icon from './Icon';
 import { doSignInWithGoogle, doSignOut } from '../../firebase/auth';
 import defaultUser from '../../assets/defaultUser.png';
@@ -10,51 +10,70 @@ import getLocation from '../functions/getLocation';
 export default function Navbar() {
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [isSigningIn, setIsSigningIn] = useState(false);
-
-    const [user, setUser] = useContext(UserContext);
     const [newLocation, setNewLocation] = useState('');
+    const [user, setUser] = useContext(UserContext);
+    const [inputValue, setinputValue] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams({ query: "" });
 
 
-    useEffect(() => {
-        async function fetchLocation() {
-            const location = await getLocation();
-            setNewLocation(location);
-        }
-        fetchLocation();
-    })
-
-
+    async function fetchLocation() {
+        const location = await getLocation();
+        return location;
+    }
     async function authLogIn() {
-        if (!isSigningIn) {
+        const location = await fetchLocation();
+        setNewLocation(location);
+
+        if (!isSigningIn && !isLoggedIn) {
             setIsSigningIn(true);
-            await doSignInWithGoogle().catch((error) => { console.error(error); }).then((res) => {
+            try {
+                const res = await doSignInWithGoogle();
                 setUser({
                     name: res.user.displayName,
                     email: res.user.email,
                     profile: res.user.photoURL,
-                    location: newLocation,
+                    location: location,
                 });
                 setLoggedIn(true);
-                setIsSigningIn(false);
-            });
+            }
+            catch (error) { console.error(error); }
+            finally { setIsSigningIn(false); }
+        } else if (isLoggedIn) {
+            try {
+                await doSignOut();
+                setLoggedIn(false);
+                setUser({ name: 'Guest', email: 'N/A', profile: defaultUser });
+            } catch (error) {
+                console.error(error);
+            }
         }
-        if (isLoggedIn) {
-            await doSignOut();
-            setLoggedIn(false);
-            setUser({ name: 'Guest', email: 'N/A', profile: defaultUser });
-        }
+    }
+
+    const applySearchQuery = () => {
+        setSearchParams(prev => {
+            prev.set('query', inputValue);
+            return prev;
+        });
     }
 
     return (
         <nav className='navbar'>
             <Link className='logo-link' to={'/'}> EasyShop </Link>
-            <input className='nav-search-bar'></input>
-            <button className='nav-link'> <Icon icon={'search'} /> </button>
+            <input
+                value={inputValue}
+                onChange={(e) => {
+                    setinputValue(e.target.value);
+                }}
+                className='nav-search-bar'
+            />
+            <button onClick={() => { applySearchQuery() }} className='nav-link'> <Icon icon={'search'} /> </button>
             <Link to={'/cart'} className='nav-link'> <Icon icon={'shopping_cart'} /> </Link>
             <div className='nav-location'> {user.name !== 'Guest' ? user.location : 'N/A'} </div>
             <div className='nav-name'> {user.name} </div>
-            <img className='nav-profile' src={`${user.profile}`} />
-            <button onClick={() => { authLogIn(); }} className='nav-loginout'> <Icon icon={isLoggedIn ? 'logout' : 'login'} /> </button>
+            <img className='nav-profile' src={`${user.profile}`} alt="Profile" />
+            <button onClick={authLogIn} className='nav-loginout'>
+                <Icon icon={isLoggedIn ? 'logout' : 'login'} />
+            </button>
         </nav>
     );
 }

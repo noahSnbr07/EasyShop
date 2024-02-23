@@ -1,15 +1,14 @@
 import React, { useContext, useState } from 'react';
-import Stock from '../../assets/libs/Stock.json';
 import { useParams } from 'react-router-dom';
 import '../../styles/detaileditem.css';
 import { UserContext } from '../../App';
 import BuyModal from '../components/BuyModal';
 export default function DetailedItem() {
-
     const { itemID } = useParams();
-    const item = Stock[itemID];
+    const [stock, setStock] = useState(JSON.parse(localStorage.getItem('products')) || []);
+    const item = stock[itemID];
 
-    const [user, setUser] = useContext(UserContext);
+    const [user] = useContext(UserContext);
     const [isModalVisible, setModalVisible] = useState(false);
 
     const InfoCard = ({ entry, value }) => {
@@ -29,10 +28,17 @@ export default function DetailedItem() {
         return `${categories.join(', ')}`;
     }
 
-    const buyItem = (item) => {
+    const buyItem = () => {
         if (user.name !== 'Guest') { setModalVisible(prev => !prev); }
         else { alert('Must be signed in to purchase'); }
     };
+
+    const toggleCart = () => {
+        const oldArray = [...stock];
+        oldArray[itemID].isCart = !(oldArray[itemID].isCart);
+        localStorage.setItem('products', JSON.stringify(oldArray));
+        setStock(JSON.parse(localStorage.getItem('products')))
+    }
 
     return (
         <>
@@ -59,8 +65,8 @@ export default function DetailedItem() {
                         <h1> {item.price} € </h1>
                     </div>
                 </section>
-                <button className='detailed-cart'>
-                    Add To Cart
+                <button onClick={() => { toggleCart(item) }} className='detailed-cart'>
+                    {item.isCart ? 'Remove from Cart' : 'Add To Cart'}
                 </button>
                 <button onClick={() => { buyItem(item); }} className='detailed-buy'>
                     Buy Now
