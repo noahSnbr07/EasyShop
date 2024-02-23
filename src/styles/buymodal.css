@@ -1,0 +1,53 @@
+.buymodal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 600px;
+    background-color: var(--overlay);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.buymodal-cover {
+    position: absolute;
+    height: 100dvh;
+    width: 100dvw;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.confirm-button {
+    background-color: var(--overlay);
+    border: none;
+    padding: 30px 60px;
+    font-size: 4rem;
+    font-weight: 900;
+
+    & span {
+        font-size: 5rem;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+    .buymodal {
+        width: 300px;
+        height: 200px;
+    }
+
+
+    .confirm-button {
+        background-color: var(--overlay);
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: 900;
+
+        & span {
+            font-size: 3rem;
+        }
+    }
+}

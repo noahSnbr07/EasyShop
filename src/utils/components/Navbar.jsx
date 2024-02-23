@@ -5,13 +5,24 @@ import Icon from './Icon';
 import { doSignInWithGoogle, doSignOut } from '../../firebase/auth';
 import defaultUser from '../../assets/defaultUser.png';
 import { UserContext } from '../../App';
+import getLocation from '../functions/getLocation';
 
 export default function Navbar() {
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [isSigningIn, setIsSigningIn] = useState(false);
-    const [location, setLocation] = useState('Fetching Location ...');
 
     const [user, setUser] = useContext(UserContext);
+    const [newLocation, setNewLocation] = useState('');
+
+
+    useEffect(() => {
+        async function fetchLocation() {
+            const location = await getLocation();
+            setNewLocation(location);
+        }
+        fetchLocation();
+    })
+
 
     async function authLogIn() {
         if (!isSigningIn) {
@@ -20,7 +31,8 @@ export default function Navbar() {
                 setUser({
                     name: res.user.displayName,
                     email: res.user.email,
-                    profile: res.user.photoURL
+                    profile: res.user.photoURL,
+                    location: newLocation,
                 });
                 setLoggedIn(true);
                 setIsSigningIn(false);
@@ -33,26 +45,13 @@ export default function Navbar() {
         }
     }
 
-    useEffect(() => {
-        fetch('https://ipapi.co/json')
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {
-                setLocation(`${data.region}, ${data.postal}, ${data.country}`)
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }, []);
-
     return (
         <nav className='navbar'>
             <Link className='logo-link' to={'/'}> EasyShop </Link>
             <input className='nav-search-bar'></input>
             <button className='nav-link'> <Icon icon={'search'} /> </button>
             <Link to={'/cart'} className='nav-link'> <Icon icon={'shopping_cart'} /> </Link>
-            <div className='nav-location'> {location} </div>
+            <div className='nav-location'> {user.name !== 'Guest' ? user.location : 'N/A'} </div>
             <div className='nav-name'> {user.name} </div>
             <img className='nav-profile' src={`${user.profile}`} />
             <button onClick={() => { authLogIn(); }} className='nav-loginout'> <Icon icon={isLoggedIn ? 'logout' : 'login'} /> </button>

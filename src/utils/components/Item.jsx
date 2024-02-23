@@ -16,9 +16,6 @@ export default function Item({ item }) {
                 <p> {item.description} </p>
                 <p> {item.price} € </p>
             </section>
-            <div className='item-save'>
-                <Icon icon={'shopping_cart'} />
-            </div>
         </div>
     );
 }

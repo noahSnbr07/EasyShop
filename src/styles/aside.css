@@ -41,6 +41,7 @@
 
     &:hover {
         background-color: var(--overlay);
+        padding: 0 calc(var(--gap) * 2);
     }
 }
 

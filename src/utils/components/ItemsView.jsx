@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../styles/itemsview.css';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Stock from '../../assets/libs/Stock.json';
 import Item from './Item';
 
@@ -26,7 +26,7 @@ export default function ItemsView() {
     return (
         <div className='items-view'>
             {filteredStock.map((item, index) => (
-                <Item key={index} item={item} />
+                <Link key={index} to={`/preview/${item.id}`}> <Item item={item} /> </Link>
             ))}
         </div>
     );
