@@ -1,0 +1,14 @@
+[
+    {
+        "id": 0,
+        "isCart": false,
+        "price": 49.99,
+        "title": "Flashlight",
+        "description": "Lasts 6 hours, White, compact, USB-C Port",
+        "asset": "https://images.unsplash.com/photo-1580846841980-225e3e2832ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "rating": {
+            "amount": 3274,
+            "average": 4.75
+        }
+    }
+]

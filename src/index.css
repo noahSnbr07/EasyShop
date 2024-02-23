@@ -1,18 +1,19 @@
 :root {
   font-size: 16px;
   --gap: 10px;
-  --overlay: rgba(255, 255, 255, 0.05);
+  --overlay: rgba(255, 255, 255, 0.025);
   --nav-item-height: 80%;
 }
 
 * {
-  box-sizing: border-box;
+  /* border: 1px solid rgb(50, 50, 100) !important; */
   text-decoration: none !important;
   list-style-type: none !important;
+  box-sizing: border-box;
   overflow: hidden;
   font-family: Arial;
-  /* border: 1px solid red !important; */
   color: azure;
+  transition: 200ms ease-out;
 }
 
 body {
@@ -20,7 +21,8 @@ body {
   width: 100dvw;
   margin: 0px;
   padding: 0px;
-  background-color: #0b1215;
+  background: rgb(11, 18, 21);
+  background: radial-gradient(circle, rgb(19, 31, 36) 0%, #0b1215 100%);
 }
 
 button {
@@ -28,6 +30,9 @@ button {
 }
 
 .material-symbols-rounded {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;

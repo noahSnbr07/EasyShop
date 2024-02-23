@@ -1,0 +1,51 @@
+.aside {
+    overflow-y: scroll;
+    padding: var(--gap) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--overlay);
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.aside-filter {
+    width: 90%;
+    flex: 1;
+    margin: var(--gap) auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--gap);
+    cursor: pointer;
+    position: relative;
+    min-height: 50px;
+
+    &::before {
+        content: '';
+        height: 2px;
+        width: 0%;
+        background-color: #ccc;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: inherit;
+    }
+
+    &:hover::before {
+        width: 100%;
+    }
+
+    &:hover {
+        background-color: var(--overlay);
+    }
+}
+
+
+.aside-filter-active {
+    background-color: var(--overlay);
+    border-bottom: 2px solid #ccc;
+}
